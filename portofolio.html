@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio Uwais </title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Bintang -->
+  <canvas id="starfield"></canvas>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Uwais</div>
+    <ul class="nav-links">
+    <a href="index.html">Home</a></li>
+      <li><a href="portofolio.html">Portfolio</a></li>
+  <li><a href="kontak.html">Contact</a></li>
+    </ul>
+  </nav>
+
+</section>
+
+
+  <!-- Portfolio Section -->
+  <section class="portfolio fade-in">
+    <h1>Portfolio & Proyek Terbaik 🚀</h1>
+    <p>Beberapa karya dan proyek yang telah saya kerjakan, menggunakan berbagai tools dan keahlian.</p>
+    <p class="text-white mb-6"></p>
+<!-- About Me Section -->
+<section class="min-h-screen flex flex-col justify-center px-12 md:px-32 fade-in pt-32">
+  <h1 class="text-5xl md:text-6xl font-bold mb-8" style="color: #FF0000;">About me</h1>
+   
+  <p class="text-lg md:text-xl text-gray-300 mb-6 max-w-3xl">
+    Hai! Saya Uwais,👋👋 seorang pelajar yang sangat antusias dengan dunia teknologi dan desain digital.
+  </p>
+
+  <p class="text-lg md:text-xl text-gray-300 mb-6 max-w-3xl">
+    Passion saya adalah membangun situs web kreatif, interaktif, dan responsif menggunakan HTML, CSS, JavaScript, dan framework modern seperti Tailwind CSS dan React.
+  </p>
+
+  <p class="text-lg md:text-xl text-gray-300 mb-6 max-w-3xl">
+    Perjalanan karier saya dimulai dari belajar secara otodidak, membangun project-project kecil, hingga mengerjakan website profesional untuk berbagai keperluan.
+  </p>
+
+  <p class="text-lg md:text-xl text-gray-300 max-w-3xl">
+    Fun fact: Selain ngoding, saya suka bermain game, dan mejadi pencita alam
+  </p>
+</section>
+
+    <div class="projects">
+      <!-- Project 1 -->
+      <div class="card fade-in">
+        <img src="ec0bin.png" alt="ECOBIN"class="project-image">
+        <h2>Smart trash can</h2>
+        <p>membuat tempat sampah pintar berbasis arduino uno, dengan megabungkan sensor lain nya seperti infra merah</p>
+        <p><strong>Tools/Skills:</strong> arduino,ifrared, </p>
+        <a href="https://contohprojek1.com" target="_blank">Lihat Proyek →</a>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="card fade-in">
+        <img src="project2.jpg" alt="Heroes of Resilience" class= "project-image">
+        <h2>BOOK</h2>
+        <p>Desainer BOOK dan isi nya</p>
+        <p><strong>Tools/Skills:</strong> canva</p>
+        <a href="https://contohprojek2.com" target="_blank">Lihat Proyek →</a>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="card fade-in">
+        <img src="project3.jpg" alt="Aplikasi Mobile Workout" class="project-image">
+        <h2>Web perpusrtakaan</h2>
+        <p>Develop web perpustakaan untuk mecerdaskan warga indonesia.</p>
+        <p><strong>Tools/Skills:</strong>Xampp,MYsql,php,JavaScript,</p>
+        <a href="https://contohprojek3.com" target="_blank">Lihat Proyek →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Script Bintang -->
+  <button onclick="topFunction()" id="scrollTopBtn" title="Ke Atas">⬆️</button>
+
+  <script>
+    // Bintang
+    const canvas = document.getElementById("starfield");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let stars = [];
+    for (let i = 0; i < 150; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 1.5,
+        speed: Math.random() * 0.5 + 0.2
+      });
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "white";
+      for (let star of stars) {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function moveStars() {
+      for (let star of stars) {
+        star.y += star.speed;
+        if (star.y > canvas.height) {
+          star.y = 0;
+          star.x = Math.random() * canvas.width;
+        }
+      }
+    }
+
+    function animate() {
+      drawStars();
+      moveStars();
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+</body>
+</html>

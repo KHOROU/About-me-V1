@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beranda | Uwais</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container-nav">
+      <div class="logo">
+        <a href="#home">[Nama Kamu]</a>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">about me</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Hubungi Saya</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+
+  <!-- Canvas Bintang -->
+  <canvas id="starfield"></canvas>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">NABIL UWAIS AL QARNY </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="portofolio.html">Portofolio</a></li>
+  <li><a href="kontak.html">Contact</a></li>
+    </ul>
+  </nav>
+  
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h2><span class="typewriter"></span></h2>
+      <h1>Desainer Grafis | Membawa Ide Menjadi Visual</h1>
+      <p>Saya seorang kreator digital yang fokus pada desain visual, branding, dan ilustrasi modern.</p>
+      <div class="cta-buttons">
+        <a href="portofolio.html" class="cta-button">Lihat Portfolio</a>
+        <a href="kontak.html" class="cta-button secondary">Contact</a>
+      </div>
+    </div>
+
+    
+  </section>
+  
+
+  <!-- Script Bintang -->
+  <script>
+    const canvas = document.getElementById("starfield");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let stars = [];
+    for (let i = 0; i < 150; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 1.5,
+        speed: Math.random() * 0.5 + 0.2
+      });
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "white";
+      for (let star of stars) {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function moveStars() {
+      for (let star of stars) {
+        star.y += star.speed;
+        if (star.y > canvas.height) {
+          star.y = 0;
+          star.x = Math.random() * canvas.width;
+        }
+      }
+    }
+
+    function animate() {
+      drawStars();
+      moveStars();
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+
+<!-- Script Mesin Ketik -->
+<script>
+  const text = "Hi, saya UWAIS 👋";
+  let index = 0;
+  function typeWriter() {
+    if (index < text.length) {
+      document.querySelector(".typewriter").innerHTML += text.charAt(index);
+      index++;
+      setTimeout(typeWriter, 100);
+    }
+  }
+  window.onload = typeWriter;
+  
+  
+
+</script>
+
+
+</body>
+</html>

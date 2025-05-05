@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontak Saya</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="starfield"></canvas>
+
+</body>
+
+
+
+  <div class="container">
+    <h1>Hubungi Saya</h1>
+    <p>Silakan hubungi saya melalui kontak berikut:</p>
+
+    <div class="portfolio-item">
+      <h3>📱 Nomor HP</h3>
+      <p>+62 0858  6711 8995</p>
+    </div>
+
+    <div class="portfolio-item">
+      <h3>📧 Email</h3>
+      <p><a href="mailto:nabiluais112@email.com">nabiluais112@email.com</a></p>
+    </div>
+
+    <div class="portfolio-item">
+      <h3>🔗 Media Sosial</h3>
+      <p>
+        Instagram: <a href="https://www.instagram.com/uwessss_/" target="_blank">@uwessss_</a><br />
+        LinkedIn: <a href="https://linkedin.com/in/akun_linkedin" target="_blank">akun_linkedin</a><br />
+        GitHub: <a href="https://github.com/KHOROU/KHOROU/blob/main/README.md" target="_blank">KHOROU</a>
+      </p>
+    </div>
+      
+    <!-- Tombol Download CV -->
+    <a href="cv-kamu.pdf" download class="mt-8 inline-block bg-[#f00000] hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition duration-300 ease-in-out">
+      📄 Download CV
+    </a>
+  
+  
+</section>
+
+
+    <div class="buttons">
+      <a href="index.html" class="btn-link">← Kembali ke Profil</a>
+    </div>
+    <script>
+      const canvas = document.getElementById("starfield");
+      const ctx = canvas.getContext("2d");
+    
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    
+      let stars = [];
+    
+      for (let i = 0; i < 150; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 1.5,
+          speed: Math.random() * 0.5 + 0.2
+        });
+      }
+    
+      function drawStars() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "white";
+        for (let star of stars) {
+          ctx.beginPath();
+          ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+    
+      function moveStars() {
+        for (let star of stars) {
+          star.y += star.speed;
+          if (star.y > canvas.height) {
+            star.y = 0;
+            star.x = Math.random() * canvas.width;
+          }
+        }
+      }
+    
+      function animate() {
+        drawStars();
+        moveStars();
+        requestAnimationFrame(animate);
+      }
+    
+      animate();
+    
+      // Responsif
+      window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+    </script>
+    <script src="js/script.js"></script>
+
+    
+      
+  </div>
+</body>
+</html>
