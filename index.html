@@ -1,55 +1,31 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-  <style>
-  html {
-    scroll-behavior: smooth;
-  }
-</style>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Beranda | Uwais</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-  <header class="navbar">
-    <div class="container-nav">
-      <div class="logo">
-        <a href="#home">[Nama Kamu]</a>
-      </div>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">about me</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#contact">Hubungi Saya</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init();
-</script>
-
-
   <!-- Canvas Bintang -->
   <canvas id="starfield"></canvas>
 
   <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">NABIL UWAIS AL QARNY </div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="portofolio.html">Portofolio</a></li>
-  <li><a href="kontak.html">Contact</a></li>
-    </ul>
-  </nav>
-  
+  <header class="navbar">
+    <div class="container-nav">
+      <div class="logo">
+        <a href="index.html">NABIL UWAIS AL QARNY</a>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portofolio.html">Portfolio</a></li>
+          <li><a href="kontak.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
   <!-- Hero Section -->
   <section class="hero">
@@ -62,10 +38,7 @@
         <a href="kontak.html" class="cta-button secondary">Contact</a>
       </div>
     </div>
-
-    
   </section>
-  
 
   <!-- Script Bintang -->
   <script>
@@ -119,23 +92,24 @@
     });
   </script>
 
-<!-- Script Mesin Ketik -->
-<script>
-  const text = "Hi, saya UWAIS 👋";
-  let index = 0;
-  function typeWriter() {
-    if (index < text.length) {
-      document.querySelector(".typewriter").innerHTML += text.charAt(index);
-      index++;
-      setTimeout(typeWriter, 100);
+  <!-- Script Mesin Ketik -->
+  <script>
+    const text = "Hi, saya UWAIS 👋";
+    let index = 0;
+    function typeWriter() {
+      if (index < text.length) {
+        document.querySelector(".typewriter").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeWriter, 100);
+      }
     }
-  }
-  window.onload = typeWriter;
-  
-  
+    window.onload = typeWriter;
+  </script>
 
-</script>
-
-
+  <!-- AOS Animation Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>
